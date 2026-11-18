@@ -20,6 +20,10 @@ def word_freq(text: str, stop_words = None) -> dict:
 
 
 def chunk_text(text, size, overlap):
+    if size <= 0:
+        raise ValueError("size должен быть больше нуля")
+    if overlap < 0:
+        raise ValueError("overlap не может быть отрицательным")
     if overlap >= size:
         raise ValueError("overlap должен быть меньше size")
     text_list = text.split()
